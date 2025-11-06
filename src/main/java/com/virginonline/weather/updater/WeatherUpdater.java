@@ -7,6 +7,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Scheduled component that updates cached weather data for all stored cities.
+ *
+ * <p>The updater iterates over city keys in WeatherCache, fetches fresh data via the provided
+ * {@link WeatherApiClient} and replaces cache entries. It can be stopped via {@link #stop()} to
+ * cancel further updates.
+ */
 public class WeatherUpdater {
 
   private final WeatherCache cache;

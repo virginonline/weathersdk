@@ -8,6 +8,11 @@ import com.virginonline.weather.model.WeatherResponse;
 import com.virginonline.weather.model.Wind;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Maps raw JSON responses from the weather provider into WeatherResponse domain objects.
+ *
+ * <p>Throws WeatherApiException when the JSON structure is unexpected or parsing fails.
+ */
 public class WeatherResponseMapper {
 
   public WeatherResponse fromJson(JsonNode json) throws WeatherApiException {
@@ -35,7 +40,7 @@ public class WeatherResponseMapper {
       int timezone = json.path("timezone").asInt(0);
       String name = json.path("name").asString("Unknown");
 
-      return new WeatherResponse(name, weather, temperature, visibility, datetime, sys, timezone);
+      return new WeatherResponse(name, weather, temperature, visibility,wind, datetime, sys, timezone);
 
     } catch (Exception e) {
       throw new WeatherApiException("Failed to parse weather response", e);

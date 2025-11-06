@@ -3,6 +3,7 @@ package com.virginonline.weather.utils;
 import com.virginonline.weather.exception.WeatherApiException;
 import okhttp3.HttpUrl;
 
+/** HTTP-related utilities used to safely construct request URLs. */
 public class HttpUtils {
 
   private HttpUtils() {}

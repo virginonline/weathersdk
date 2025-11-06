@@ -1,6 +1,7 @@
 package cache;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.virginonline.weather.cache.WeatherCache;
 import com.virginonline.weather.model.Temperature;
@@ -24,7 +25,7 @@ public class WeatherCacheTest {
   public void testPutAndGetCity() {
     Temperature t = new Temperature(BigDecimal.valueOf(20.0), BigDecimal.valueOf(18.0));
     WeatherInfo info = new WeatherInfo("Clear", "clear sky");
-    WeatherResponse resp = new WeatherResponse("London", info, t, 10000, 0L, null, 0);
+    WeatherResponse resp = new WeatherResponse("London", info, t, 10000, null, 0L, null, 0);
 
     cache.put("London", resp);
     Optional<WeatherResponse> opt = cache.getCity("London");
@@ -36,7 +37,7 @@ public class WeatherCacheTest {
   public void testGetCityCaseInsensitiveAndStoredCities() {
     Temperature t = new Temperature(BigDecimal.ZERO, BigDecimal.ZERO);
     WeatherInfo info = new WeatherInfo("X", "x");
-    WeatherResponse resp = new WeatherResponse("City", info, t, 0, 0L, null, 0);
+    WeatherResponse resp = new WeatherResponse("City", info, t, 0, null,0L, null, 0);
 
     cache.put("TeSt", resp);
     assertTrue(cache.getCity("test").isPresent());
@@ -47,7 +48,7 @@ public class WeatherCacheTest {
   public void testClearAndSize() {
     Temperature t = new Temperature(BigDecimal.ZERO, BigDecimal.ZERO);
     WeatherInfo info = new WeatherInfo("X", "x");
-    WeatherResponse resp = new WeatherResponse("C", info, t, 0, 0L, null, 0);
+    WeatherResponse resp = new WeatherResponse("C", info, t, 0, null,0L, null, 0);
 
     cache.put("a", resp);
     cache.put("b", resp);

@@ -14,10 +14,7 @@ import org.slf4j.LoggerFactory;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
-/**
- * Fetches current weather data from OpenWeather One Call 3.0 API. Uses Geocoding API for
- * coordinates.
- */
+/** Fetches current weather data from OpenWeather One Call 2.5 API. */
 public class OpenWeatherApiClient implements WeatherApiClient {
   private static final Logger log = LoggerFactory.getLogger(OpenWeatherApiClient.class);
 

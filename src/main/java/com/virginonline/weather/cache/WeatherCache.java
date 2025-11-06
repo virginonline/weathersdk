@@ -11,6 +11,12 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Simple LRU-like in-memory cache for weather responses with time-to-live (TTL).
+ *
+ * <p>Stores up to a fixed number of entries and evicts the eldest entry when capacity is exceeded.
+ * Each cached item has a timestamp and is considered expired after TTL minutes.
+ */
 public class WeatherCache {
   private static final Logger log = LoggerFactory.getLogger(WeatherCache.class);
 
