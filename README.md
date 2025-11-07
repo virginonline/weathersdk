@@ -1,21 +1,6 @@
 # WeatherSDK — Quick Start
 
 
-## Install (Maven)
-
-Добавьте зависимость в `pom.xml`:
-
-```xml
-<dependency>
-  <groupId>com.virginonline</groupId>
-  <artifactId>WeatherSDK</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
-
-## Quick start (Java)
-
-
 ```java
 import com.virginonline.weather.core.Mode;
 import com.virginonline.weather.core.WeatherSDKFactory;
